@@ -10,7 +10,7 @@ import javax.ws.rs.client.ClientBuilder;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class PrimeServiceIntegrationTest {
+public class PrimeServiceIT {
 
     @Test
     public void shouldReturnPrimes() throws Exception {
