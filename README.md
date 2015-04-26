@@ -16,3 +16,7 @@ Then run:
 ```
 java -jar <path-to-jar> server
 ```
+
+Service is then available on port 8080.
+
+Example request: http://localhost:8080/primes/100
