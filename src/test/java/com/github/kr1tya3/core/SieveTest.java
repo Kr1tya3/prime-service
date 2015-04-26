@@ -1,16 +1,12 @@
 package com.github.kr1tya3.core;
 
 
-import com.github.kr1tya3.api.PrimeListGenerator;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.collection.IsEmptyCollection.empty;
-import static org.hamcrest.core.Is.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class SieveTest {
@@ -25,12 +21,18 @@ public class SieveTest {
     @Test
     public void shouldReturnEmptyListIfLimitIsZero() throws Exception {
         List<Integer> primes = sieve.getPrimes(0);
-        assertThat(primes, is(empty()));
+        assertThat(primes).isEmpty();
     }
 
     @Test
     public void shouldReturnPrimesUpTo5() throws Exception {
         List<Integer> primes = sieve.getPrimes(5);
-        assertThat(primes, contains(2, 3, 5));
+        assertThat(primes).containsExactly(2, 3, 5);
+    }
+
+    @Test
+    public void shouldNotHaveIntegerOverFlow() {
+        List<Integer> primes = sieve.getPrimes(1000000);
+        assertThat(primes).isNotEmpty();
     }
 }

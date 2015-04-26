@@ -36,7 +36,7 @@ public class Sieve implements com.github.kr1tya3.api.PrimeListGenerator {
     }
 
     private void setFalseForAllMultiples(int limit, boolean[] isPrime, int i) {
-        for (int j = i; ((long)i*j) <= limit; j++) {
+        for (int j = i; (long)i*j <= limit; j++) {
             isPrime[i*j] = false;
         }
     }
